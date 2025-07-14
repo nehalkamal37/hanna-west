@@ -58,10 +58,10 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-background">
+    <section id="contact" className="py-20 bg-background" aria-labelledby="contact-heading">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <h2 id="contact-heading" className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             Get in Touch
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -74,22 +74,35 @@ const Contact = () => {
           <div className="animate-slide-up">
             <h3 className="text-2xl font-bold text-foreground mb-8">Contact Information</h3>
             
-            <div className="space-y-6 mb-8">
+            <div className="space-y-6 mb-8" role="list" aria-label="Contact information">
               {contactInfo.map((info, index) => (
                 <Card 
                   key={info.title} 
                   className="border-0 bg-gradient-subtle shadow-soft"
                   style={{ animationDelay: `${index * 100}ms` }}
+                  role="listitem"
                 >
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0" aria-hidden="true">
                         <info.icon className="w-6 h-6 text-primary-foreground" />
                       </div>
                       <div>
                         <h4 className="font-semibold text-foreground mb-2">{info.title}</h4>
                         {info.details.map((detail, i) => (
-                          <p key={i} className="text-muted-foreground">{detail}</p>
+                          <p key={i} className="text-muted-foreground" role={info.title === "Phone" ? "button" : undefined}>
+                            {info.title === "Phone" ? (
+                              <a href={`tel:${detail}`} className="hover:text-primary transition-colors" aria-label={`Call ${detail}`}>
+                                {detail}
+                              </a>
+                            ) : info.title === "Email" ? (
+                              <a href={`mailto:${detail}`} className="hover:text-primary transition-colors" aria-label={`Email ${detail}`}>
+                                {detail}
+                              </a>
+                            ) : (
+                              detail
+                            )}
+                          </p>
                         ))}
                       </div>
                     </div>
@@ -115,10 +128,10 @@ const Contact = () => {
                 <CardTitle className="text-2xl font-bold text-foreground">Send us a Message</CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6" noValidate aria-label="Contact form">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Name *</Label>
+                      <Label htmlFor="name" className="text-sm font-medium text-foreground">Name <span className="text-destructive" aria-label="required">*</span></Label>
                       <Input
                         id="name"
                         name="name"
@@ -127,10 +140,12 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         className="border-border focus:border-primary"
+                        aria-describedby="name-error"
+                        aria-invalid={formData.name === "" ? "true" : "false"}
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email *</Label>
+                      <Label htmlFor="email" className="text-sm font-medium text-foreground">Email <span className="text-destructive" aria-label="required">*</span></Label>
                       <Input
                         id="email"
                         name="email"
@@ -139,6 +154,8 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         className="border-border focus:border-primary"
+                        aria-describedby="email-error"
+                        aria-invalid={formData.email === "" ? "true" : "false"}
                       />
                     </div>
                   </div>

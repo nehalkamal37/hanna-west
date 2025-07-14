@@ -49,10 +49,10 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gradient-subtle">
+    <section id="services" className="py-20 bg-gradient-subtle" aria-labelledby="services-heading">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <h2 id="services-heading" className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             What We Do
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
