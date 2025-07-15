@@ -38,7 +38,8 @@ const Header = () => {
       >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-22">
+
           {/* Logo
           
           <div 
@@ -66,7 +67,7 @@ const Header = () => {
 
 
 <div 
-  className="flex-shrink-0 cursor-pointer flex items-center h-full"
+  className="flex-shrink-0 cursor-pointer flex items-center h-22"
   onClick={() => scrollToSection("#home")}
   role="button"
   tabIndex={0}
@@ -78,11 +79,13 @@ const Header = () => {
   }}
   aria-label="HannaWest Solutions - Go to homepage"
 >
+ 
   <img
-    src="/logo.png"
-    alt="HannaWest Solutions Logo"
-    className="h-auto max-h-14 w-auto object-contain"
-  />
+  src="/logo.png"
+  alt="HannaWest Solutions Logo"
+  className="h-20 w-auto object-contain"
+/>
+
 </div>
 
           {/* Desktop Navigation */}
