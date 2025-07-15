@@ -37,25 +37,53 @@ const Header = () => {
         role="banner"
       >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo
+          
           <div 
-            className="flex-shrink-0 cursor-pointer" 
-            onClick={() => scrollToSection("#home")}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                scrollToSection("#home");
-              }
-            }}
-            aria-label="HannaWest Solutions - Go to homepage"
-          >
-            <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              HannaWest Solutions
-            </h1>
-          </div>
+  className="flex-shrink-0 cursor-pointer" 
+  onClick={() => scrollToSection("#home")}
+  role="button"
+  tabIndex={0}
+  onKeyDown={(e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      scrollToSection("#home");
+    }
+  }}
+  aria-label="HannaWest Solutions - Go to homepage"
+>
+  <img
+    src="/path-to-your-logo.png"
+    alt="HannaWest Solutions Logo"
+    className="h-10 w-auto"
+  />
+</div>
+
+          */}
+      
+
+
+<div 
+  className="flex-shrink-0 cursor-pointer flex items-center h-full"
+  onClick={() => scrollToSection("#home")}
+  role="button"
+  tabIndex={0}
+  onKeyDown={(e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      scrollToSection("#home");
+    }
+  }}
+  aria-label="HannaWest Solutions - Go to homepage"
+>
+  <img
+    src="/logo.png"
+    alt="HannaWest Solutions Logo"
+    className="h-auto max-h-14 w-auto object-contain"
+  />
+</div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8" role="navigation" aria-label="Main navigation">
