@@ -60,7 +60,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
             <div className="space-y-2 text-background/80">
               <p>Phone: +1 (901) 697-0621</p>
-              <p>Email: info@hannawestsolutions.com</p>
+              <p>Email: m.a.hannalla@gmail.com</p>
             </div>
             <div className="mt-4">
               <p className="text-sm text-background/60">Business Hours:</p>
